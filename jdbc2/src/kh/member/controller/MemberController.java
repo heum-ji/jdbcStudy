@@ -17,13 +17,14 @@ public class MemberController {
 	}
 
 	public void main() {
+
 		while (true) {
 			switch (view.showMenu()) {
 			case 1:
 				printAllMember();
 				break;
 			case 2:
-				printMemberId();
+				printOneMemberId();
 				break;
 			case 3:
 				printMemberName();
@@ -44,23 +45,22 @@ public class MemberController {
 	}
 
 	public void printAllMember() {
-		// dao를 통해서 DB에서 전체회원정보를 ArrayList로 받음
 		ArrayList<Member> list = dao.selectAllMember();
+
 		if (list.isEmpty()) {
-			// 회원이 한명도 없는 경우
+			view.printMsg("조회 결과 없음!!");
 		} else {
 			view.printAllMember(list);
 		}
 	}
 
-	public void printMemberId() {
+	public void printOneMemberId() {
 		Member m = dao.selectOneMember(view.getId());
 
-		if (m == null) {
-			// 해당 id 회원이 없는 경우
-			view.printMsg("조회 실패!!");
-		} else {
+		if (m != null) {
 			view.printOneMember(m);
+		} else {
+			view.printMsg("조회 실패!!");
 		}
 	}
 
@@ -78,24 +78,23 @@ public class MemberController {
 		view.printMsg("----- 회원 가입 -----");
 		String memberId = null;
 
-		// id 중복체크
 		while (true) {
 			memberId = view.getId();
 
-			if (dao.selectOneMember(memberId) == null) {
-				break;
+			if (dao.selectOneMember(memberId) != null) {
+				view.printMsg("이미 사용중인 아이디입니다.");
 			} else {
-				view.printMsg("중복된 아이디입니다. 다시 입력해주세요.");
+				break;
 			}
 		}
-		// 나머지 정보 입력
+
 		Member m = view.getMember();
 		m.setMemberId(memberId);
 
-		if (dao.insertMember(m) > 0) { // 성공
-			view.printMsg("가입 성공!");
-		} else { // 실패
-			view.printMsg("실패");
+		if (dao.insertMember(m) > 0) {
+			view.printMsg("회원 가입 성공");
+		} else {
+			view.printMsg("회원 가입 실패");
 		}
 	}
 
@@ -104,15 +103,15 @@ public class MemberController {
 		String memberId = view.getId();
 
 		if (dao.selectOneMember(memberId) == null) {
-			view.printMsg("회원정보 찾을 수 없습니다.");
+			view.printMsg("해당 회원은 없습니다.");
 		} else {
-			Member m = view.updateMember();
-			m.setMemberId(memberId);
+			Member member = view.updateMember();
+			member.setMemberId(memberId);
 
-			if (dao.updateMember(m) > 0) {
-				view.printMsg("업데이트 성공");
+			if (dao.updateMember(member) > 0) {
+				view.printMsg("수정 성공");
 			} else {
-				view.printMsg("업데이트 실패");
+				view.printMsg("수정 실패");
 			}
 		}
 	}

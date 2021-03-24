@@ -14,7 +14,7 @@ public class MemberView {
 	}
 
 	public int showMenu() {
-		System.out.println("----- 회원 관리 프로그램v1 -----");
+		System.out.println("----- 회원 관리 프로그램v2 -----");
 		System.out.println("1. 회원 전체 조회"); // SELECT
 		System.out.println("2. 아이디로 회원 조회"); // SELECT
 		System.out.println("3. 이름으로 회원 조회"); // SELECT
@@ -85,7 +85,7 @@ public class MemberView {
 		m.setPhone(sc.next());
 		return m;
 	}
-	
+
 	public void printMsg(String msg) {
 		System.out.println(msg);
 	}
