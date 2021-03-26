@@ -198,7 +198,7 @@ public class ExamController {
 				view.printMsg("게시글 삭제 실패!!");
 			}
 		} else {
-			view.printMsg("작성자만 수정이 가능합니다.");
+			view.printMsg("작성자만 삭제가 가능합니다.");
 		}
 		JDBCTemplate.close(conn);
 	}
