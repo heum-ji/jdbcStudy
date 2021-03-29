@@ -116,7 +116,7 @@ public class ExamView {
 				System.out.println(board.getBoardNo() + "\t" + board.getBoardTitle() + "\t" + "탈퇴회원" + "\t"
 						+ board.getReadCount() + "\t" + board.getWriteDate());
 			} else {
-				System.out.println(board.getBoardNo() + "\t" + board.getBoardTitle() + "\t" + board.getMember_name()
+				System.out.println(board.getBoardNo() + "\t" + board.getBoardTitle() + "\t" + board.getMemberName()
 						+ "\t" + board.getReadCount() + "\t" + board.getWriteDate());
 			}
 		}
@@ -126,7 +126,7 @@ public class ExamView {
 		System.out.println("게시물 번호 : " + board.getBoardNo());
 		System.out.println("게시물 제목 : " + board.getBoardTitle());
 		System.out.println("게시물 내용 : " + board.getBoardContent());
-		System.out.println("게시물 작성자 : " + board.getMember_name());
+		System.out.println("게시물 작성자 : " + board.getMemberName());
 		System.out.println("게시물 조회수 : " + board.getReadCount());
 		System.out.println("게시물 작성일 : " + board.getWriteDate());
 	}

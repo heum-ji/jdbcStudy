@@ -145,7 +145,7 @@ public class ExamDao {
 				board.setBoardWriter(rset.getString("board_writer"));
 				board.setReadCount(rset.getInt("read_count"));
 				board.setWriteDate(rset.getDate("write_date"));
-				board.setMember_name(rset.getString("member_name"));
+				board.setMemberName(rset.getString("member_name"));
 				list.add(board);
 			}
 		} catch (SQLException e) {
@@ -233,7 +233,7 @@ public class ExamDao {
 				board.setBoardWriter(rset.getString("board_writer"));
 				board.setReadCount(rset.getInt("read_count"));
 				board.setWriteDate(rset.getDate("write_date"));
-				board.setMember_name(rset.getString("member_name"));
+				board.setMemberName(rset.getString("member_name"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

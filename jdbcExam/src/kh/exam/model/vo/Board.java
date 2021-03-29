@@ -9,11 +9,11 @@ public class Board {
 	private String boardWriter;
 	private int readCount;
 	private Date writeDate;
-	private String member_name;
+	private String memberName;
 
 	public Board() {
 		super();
-		member_name = null;
+		memberName = null;
 	}
 
 	public int getBoardNo() {
@@ -64,11 +64,11 @@ public class Board {
 		this.writeDate = writeDate;
 	}
 
-	public String getMember_name() {
-		return member_name;
+	public String getMemberName() {
+		return memberName;
 	}
 
-	public void setMember_name(String member_name) {
-		this.member_name = member_name;
+	public void setMemberName(String member_name) {
+		this.memberName = member_name;
 	}
 }
